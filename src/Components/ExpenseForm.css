@@ -1,0 +1,48 @@
+.expense-form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 30px auto;
+}
+
+.expense-form h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+}
+
+.form-item label {
+  display: inline-block;
+  font-weight: bold;
+  margin-right: 10px;
+  width: 100px;
+}
+
+.form-item input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #0077ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #005fcc;
+}
