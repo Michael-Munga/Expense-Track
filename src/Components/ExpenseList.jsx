@@ -1,6 +1,6 @@
 import React from "react";
 import "./ExpenseList.css";
-
+import { v4 as uuidv4 } from "uuid";
 export default function ExpenseList({ items }) {
   return (
     <div className="expense-list">
@@ -14,8 +14,8 @@ export default function ExpenseList({ items }) {
           </tr>
         </thead>
         <tbody>
-          {items.map((expense, index) => (
-            <tr key={index}>
+          {items.map((expense) => (
+            <tr key={uuidv4()}>
               <td>{expense.title}</td>
               <td>{expense.amount}</td>
               <td>{expense.date}</td>
