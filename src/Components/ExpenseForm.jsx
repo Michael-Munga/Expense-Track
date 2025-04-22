@@ -4,25 +4,33 @@ import { useState } from "react";
 
 export default function ExpenseForm({ onAddExpense }) {
   // State for form inputs
-  const [title, setTitle] = useState("");
-  const [amount, setAmount] = useState("");
-  const [date, setDate] = useState("");
+  const [formData, setFormData] = useState({
+    title: "",
+    amount: "",
+    date: "",
+  });
+  // Hndle input change
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-
     // Create new expense object
     const newExpense = {
-      title,
-      amount,
-      date,
+      title: formData.title,
+      amount: formData.amount,
+      date: formData.date,
     };
 
     onAddExpense(newExpense);
-
-    // Clear the form
-    setTitle("");
-    setAmount("");
-    setDate("");
+    // Reset form
+    setFormData({
+      title: "",
+      amount: "",
+      date: "",
+    });
   };
 
   return (
@@ -34,9 +42,10 @@ export default function ExpenseForm({ onAddExpense }) {
           <label>Title</label>
           <input
             type="text"
+            name="title"
             placeholder="Expense"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            value={formData.title}
+            onChange={handleChange}
             required
           />
         </div>
@@ -45,9 +54,10 @@ export default function ExpenseForm({ onAddExpense }) {
           <label>Amount</label>
           <input
             type="number"
+            name="amount"
             placeholder="Ksh"
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
+            value={formData.amount}
+            onChange={handleChange}
             required
           />
         </div>
@@ -56,8 +66,9 @@ export default function ExpenseForm({ onAddExpense }) {
           <label>Date</label>
           <input
             type="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
+            name="date"
+            value={formData.date}
+            onChange={handleChange}
             required
           />
         </div>
